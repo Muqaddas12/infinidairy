@@ -15,8 +15,9 @@ export default function ProductPage({ params }) {
   const product = getProduct(params.slug);
   if (!product) notFound();
 
+  const productSchema={"@context":"https://schema.org","@type":"Product","name":product.title,"description":product.description,"image":[`https://www.infinidairy.com${product.image}`],"brand":{"@type":"Brand","name":"Infinidairy"},"offers":{"@type":"Offer","priceCurrency":"INR","price":String(product.price),"availability":"https://schema.org/InStock","url":`https://www.infinidairy.com/products/${product.slug}`}};
   return (
-    <main className="detailPage">
+    <main className="detailPage"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(productSchema)}}/>
       <div className="container breadcrumbs"><Link href="/">Home</Link> / <Link href="/products">Products</Link> / {product.size}</div>
       <section className="container detailGrid">
         <div className="detailImage"><Image src={product.image} alt={product.title} fill priority sizes="(max-width: 800px) 100vw, 50vw"/></div>

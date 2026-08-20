@@ -1,0 +1,4 @@
+import { faqs } from "../../lib/data";
+export const metadata={title:"Frequently Asked Questions | Infinidairy",description:"Answers to common questions about Infinidairy milk, storage, pack sizes, nutrition and contact."};
+export default function FAQ(){
+ const schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))};return <main className="innerPage"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/><div className="innerHero"><div className="container"><div className="sectionKicker light">HELP CENTER</div><h1>Frequently asked <em>questions.</em></h1><p>Quick answers about products, storage, nutrition and the Infinidairy brand.</p></div></div><section className="section"><div className="container faqGrid">{faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></section></main>}

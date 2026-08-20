@@ -1,27 +1,73 @@
-# Infinidairy — Next.js Website
+# Infinidairy — Complete Next.js Website
 
-A full responsive Infinidairy marketing/e-commerce starter built with **Next.js App Router**, React and `lucide-react`.
+## Stack
+- Next.js App Router
+- React
+- Tailwind CSS 3 + PostCSS
+- Responsive custom CSS
+- Lucide icons
+- Next Image
+- Dynamic product and blog routes
 
-## Included
+## Site architecture
 
-- Hero / Home with large generated banner + CTA
-- About Infinidairy
-- Products: 200 ml, 500 ml, 1 Litre, 2 Litre
-- Product detail pages with dynamic `[slug]` routes
-- Demo cart with add/remove/clear functionality
-- Nutrition page + nutrition section
-- Quality & process: farm → pasteurisation → testing → packaging
-- Why Infinidairy
-- Farm / lifestyle image section
-- Blog listing + dynamic article pages
-- Contact form with Next.js API route
-- Newsletter form with Next.js API route
-- Responsive navigation/mobile menu
-- Footer
-- Privacy / Terms starter pages
-- Generated product artwork included in `public/images`
-- Next Image and App Router
-- Static generation for product and article routes
+The homepage is intentionally a **cinematic animated Coming Soon landing page**. The complete website content is separated into crawlable pages:
+
+- `/` — animated Coming Soon
+- `/about` — brand story
+- `/products` — product catalogue
+- `/products/200ml`
+- `/products/500ml`
+- `/products/1-litre`
+- `/products/2-litre`
+- `/nutrition` — nutrition facts
+- `/quality` — farm → pasteurisation → testing → packaging
+- `/why-infinidairy` — benefits
+- `/blog` — articles
+- `/blog/[slug]` — article pages
+- `/faq` — FAQ + FAQ structured data
+- `/contact` — contact form
+- `/cart` — demo cart
+- `/privacy`
+- `/terms`
+- `/sitemap.xml` — generated sitemap
+- `/robots.txt` — generated robots rules
+
+## SEO included
+
+- Page-specific metadata
+- Title templates
+- Meta descriptions
+- Canonical URL support
+- Open Graph metadata
+- Twitter card metadata
+- Robots directives
+- `sitemap.xml`
+- `robots.txt`
+- Organization JSON-LD
+- Product JSON-LD on product detail pages
+- FAQPage JSON-LD
+- Semantic headings
+- Image alt text
+- Crawlable separate pages
+- Internal linking
+- SEO-friendly dynamic slugs
+
+### Important SEO reality
+
+No website can honestly guarantee a first-page Google position. Rankings depend on competition, search intent, authority, backlinks, technical quality, content quality, location, user signals and Google's algorithms.
+
+This build includes the technical SEO foundation, but for real first-page performance you should still:
+1. Replace the placeholder domain with the real domain.
+2. Verify the site in Google Search Console.
+3. Submit `/sitemap.xml`.
+4. Connect Google Analytics/consent tooling if appropriate.
+5. Replace placeholder business/contact/legal information.
+6. Use verified nutrition and product claims.
+7. Publish original useful articles regularly.
+8. Build legitimate, relevant backlinks/citations.
+9. Optimize Core Web Vitals after deployment.
+10. Add real product availability/location pages if you sell locally.
 
 ## Run
 
@@ -30,46 +76,17 @@ npm install
 npm run dev
 ```
 
-Open the local address shown by Next.js.
-
-## Production
+Production:
 
 ```bash
 npm run build
 npm start
 ```
 
-## Important production integrations
+## Production integrations still required
 
-The cart is intentionally a frontend demo. Connect it to your real database and payment provider before taking orders.
+The cart is a frontend demo. Connect it to your real database, checkout/payment provider, inventory and order system.
 
-The newsletter/contact API routes currently validate and log submissions. Replace those handlers with your email provider/database.
+The contact/newsletter API routes currently accept and log submissions. Connect them to your real email/CRM/database provider.
 
-The example phone/email/legal copy is placeholder content and should be replaced with the real business details and policies.
-
-
-## Tailwind CSS + cinematic theme
-
-This version includes Tailwind CSS 3 with PostCSS and a `tailwind.config.js` theme extension. The site also contains a custom cinematic "Scarlet Magic" visual language using crimson, ruby red, magenta, violet glow, rings, particles, animated energy and deep shadows.
-
-The visual direction is **inspired by the color/light language associated with Scarlet Witch/Wanda Maximoff**, rather than reproducing the Marvel character or character artwork. This keeps the milk product as the hero while giving the site a supernatural cinematic feeling.
-
-### Responsive targets
-
-The CSS includes breakpoints for:
-- Large desktop
-- Laptop/tablet
-- Mobile
-- Small mobile
-- Reduced-motion accessibility
-
-### Tailwind
-
-Run:
-
-```bash
-npm install
-npm run dev
-```
-
-Tailwind is compiled through PostCSS. Existing custom CSS is intentionally retained for the detailed product/brand layout, while Tailwind utilities and theme tokens are available throughout the app.
+Replace `https://www.infinidairy.com` with the actual production domain everywhere before deployment.
